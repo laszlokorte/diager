@@ -89,8 +89,24 @@ require_once './level4/generator.php';
 require_once './level4/schema.php';
 $level4 = require_once './level4/self.php';
 require_once './level4/validator.php';
+$level4to3 = require_once './level4/level3.php';
+$level4to2 = require_once './level4/level2.php';
+$level4to1 = require_once './level4/level1.php';
+$level4to0 = require_once './level4/level0.php';
 
 $level4Validator = new Level4\Validator();
 if(VALIDATE_OUT) echo $level4Validator->validate($level4, $level4) ? 'VALID' : 'INVALID', PHP_EOL;
 $level4Generator = new Level4\Generator();
 if(GENERATE_OUT) echo $level4Generator->generate($level4), PHP_EOL;
+
+$level4to3Generator = new Level4\Generator('Level3');
+if(GENERATE_OUT) echo $level4to3Generator->generate($level4to3), PHP_EOL;
+
+$level4to2Generator = new Level4\Generator('Level2');
+if(GENERATE_OUT) echo $level4to2Generator->generate($level4to2), PHP_EOL;
+
+$level4to1Generator = new Level4\Generator('Level1');
+if(GENERATE_OUT) echo $level4to1Generator->generate($level4to1), PHP_EOL;
+
+$level4to0Generator = new Level4\Generator('Level0');
+if(GENERATE_OUT) echo $level4to0Generator->generate($level4to0), PHP_EOL;

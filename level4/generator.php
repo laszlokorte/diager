@@ -20,7 +20,7 @@ class Generator {
 
         $entities = implode(PHP_EOL, array_map(function($entIndex, $ent) use ($diagram) { 
 
-            $attributes = implode(', ', array_map(fn($cons) => sprintf('public $%s', $diagram->listOfAttribute[$cons->AttributeIndex]->id), array_filter($diagram->listOfConsisting, fn($cons) => $cons->EntityIndex === $entIndex)));
+            $attributes = implode(', ', array_map(fn($cons) => sprintf('public string $%s', $diagram->listOfAttribute[$cons->AttributeIndex]->id), array_filter($diagram->listOfConsisting, fn($cons) => $cons->EntityIndex === $entIndex)));
 
             return <<<EO
             class $ent->id {
