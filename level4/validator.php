@@ -1,6 +1,6 @@
 <?php
 
-namespace Level3;
+namespace Level4;
 
 class Validator {
     public function validate(Diagram $schema, object $instance) {

@@ -80,3 +80,17 @@ if(GENERATE_OUT) echo $level3to0Generator->generate($level3to0), PHP_EOL;
 
 $level3to4Generator = new Level3\Generator('Level4');
 if(GENERATE_OUT) echo $level3to4Generator->generate($level3to4), PHP_EOL;
+
+
+
+
+
+require_once './level4/generator.php';
+require_once './level4/schema.php';
+$level4 = require_once './level4/self.php';
+require_once './level4/validator.php';
+
+$level4Validator = new Level4\Validator();
+if(VALIDATE_OUT) echo $level4Validator->validate($level4, $level4) ? 'VALID' : 'INVALID', PHP_EOL;
+$level4Generator = new Level4\Generator();
+if(GENERATE_OUT) echo $level4Generator->generate($level4), PHP_EOL;
