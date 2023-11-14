@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_STRICT|E_ALL);
 
 define('GENERATE_OUT', true);
 define('VALIDATE_OUT', true);
@@ -93,6 +94,7 @@ $level4to3 = require_once './level4/level3.php';
 $level4to2 = require_once './level4/level2.php';
 $level4to1 = require_once './level4/level1.php';
 $level4to0 = require_once './level4/level0.php';
+$level4to5 = require_once './level4/level5.php';
 
 $level4Validator = new Level4\Validator();
 if(VALIDATE_OUT) echo $level4Validator->validate($level4, $level4) ? 'VALID' : 'INVALID', PHP_EOL;
@@ -110,3 +112,32 @@ if(GENERATE_OUT) echo $level4to1Generator->generate($level4to1), PHP_EOL;
 
 $level4to0Generator = new Level4\Generator('Level0');
 if(GENERATE_OUT) echo $level4to0Generator->generate($level4to0), PHP_EOL;
+
+$level4to5Generator = new Level4\Generator('Level5');
+if(GENERATE_OUT) echo $level4to5Generator->generate($level4to5), PHP_EOL;
+
+
+
+require_once './level5/generator.php';
+require_once './level5/schema.php';
+$level5 = require_once './level5/self.php';
+$level5to6 = require_once './level5/level6.php';
+
+$level5Generator = new Level5\Generator();
+if(GENERATE_OUT) echo $level5Generator->generate($level5), PHP_EOL;
+
+$level5to6Generator = new Level5\Generator('Level6');
+if(GENERATE_OUT) echo $level5to6Generator->generate($level5to6), PHP_EOL;
+
+
+
+require_once './level6/generator.php';
+require_once './level6/schema.php';
+$level6 = require_once './level6/self.php';
+$level6to7 = require_once './level6/level7.php';
+
+$level6Generator = new Level6\Generator();
+if(GENERATE_OUT) echo $level6Generator->generate($level6), PHP_EOL;
+
+$level6to7Generator = new Level6\Generator('Level7');
+if(GENERATE_OUT) echo $level6to7Generator->generate($level6to7), PHP_EOL;
