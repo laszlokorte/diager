@@ -164,12 +164,13 @@ $level7to8Generator = new Level7\Generator('Level8');
 if(GENERATE_OUT) echo $level7to8Generator->generate($level7to8), PHP_EOL;
 
 $level7to6Generator = new Level7\Generator('Level6');
-if(true) echo $level7to6Generator->generate($level7to6), PHP_EOL;
+if(GENERATE_OUT) echo $level7to6Generator->generate($level7to6), PHP_EOL;
 
 require_once './level8/generator.php';
 require_once './level8/schema.php';
 $level8 = require_once './level8/self.php';
 $level8to9 = require_once './level8/level9.php';
+$level8to7 = require_once './level8/level7.php';
 
 $level8Generator = new Level8\Generator();
 if(GENERATE_OUT) echo $level8Generator->generate($level8), PHP_EOL;
@@ -178,6 +179,8 @@ if(GENERATE_OUT) echo $level8Generator->generate($level8), PHP_EOL;
 $level8to9Generator = new Level8\Generator('Level9');
 if(GENERATE_OUT) echo $level8to9Generator->generate($level8to9), PHP_EOL;
 
+$level8to7Generator = new Level8\Generator('Level7');
+if(GENERATE_OUT) echo $level8to7Generator->generate($level8to7), PHP_EOL;
 
 require_once './level9/generator.php';
 require_once './level9/schema.php';
