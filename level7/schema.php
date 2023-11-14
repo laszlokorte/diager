@@ -9,31 +9,31 @@ class Diagram {
 }
 
 class Entity {
-    function __construct(public int $id) {
+    function __construct(public string $EntId) {
     }
 }
 class Relation {
-    function __construct(public int $id) {
+    function __construct(public string $RelId) {
     }
 }
 class Attribute {
-    function __construct(public int $id, public bool $multiple, public bool $iskey, public mixed $type) {
+    function __construct(public string $AtrId, public bool $AtrMul, public bool $AtrKey, public mixed $AtrTyp) {
     }
 }
 class RelationAttribute {
-    function __construct(public int $id, public bool $multiple, public bool $iskey, public mixed $type) {
+    function __construct(public string $RelAtrId, public bool $RelAtrMul, public bool $RelAtrKey, public mixed $RelAtrTyp) {
     }
 }
 
 class Association {
-    function __construct(public int $EntityIndex, public int $RelationIndex, public int? $min, public int? $max, public bool $existence, public string $role) {
+    function __construct(public string $AssocEntityId, public string $AssocRelationId, public int $AssocMin, public ?int $AssocMax, public bool $AssocExistence, public ?string $AssocRole) {
     }
 }
 class Consisting {
-    function __construct(public int $EntityIndex, public int $AttributeIndex) {
+    function __construct(public string $ConsistingEntityId, public string $ConsistingAttributeId) {
     }
 }
 class Attached {
-    function __construct(public int $RelationIndex, public int $RelationAttributeIndex) {
+    function __construct(public string $AttachedRelationId, public string $AttachedRelationAttributeId) {
     }
 }

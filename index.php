@@ -141,3 +141,11 @@ if(GENERATE_OUT) echo $level6Generator->generate($level6), PHP_EOL;
 
 $level6to7Generator = new Level6\Generator('Level7');
 if(GENERATE_OUT) echo $level6to7Generator->generate($level6to7), PHP_EOL;
+
+
+require_once './level7/generator.php';
+require_once './level7/schema.php';
+$level7 = require_once './level7/self.php';
+
+$level7Generator = new Level7\Generator();
+if(GENERATE_OUT) echo $level7Generator->generate($level7), PHP_EOL;

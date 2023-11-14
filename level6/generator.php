@@ -32,9 +32,6 @@ class Generator {
 
         $relations = implode(PHP_EOL, array_map(function($relIndex, $rel) use($diagram) { 
             $params = implode(', ', [
-                ...array_map(
-                    fn ($assoc) => sprintf('public int $%sIndex', $diagram->listOfEntity[$assoc->EntityIndex]->id), 
-                    array_filter($diagram->listOfAssociation, fn ($a) => $a->RelationIndex == $relIndex)),
                 ...array_map(fn($att) => sprintf('public %s $%s', $diagram->listOfRelationAttribute[$att->RelationAttributeIndex]->type, $diagram->listOfRelationAttribute[$att->RelationAttributeIndex]->id), array_filter($diagram->listOfAttached, fn($att) => $att->RelationIndex === $relIndex))
             ]);
 
