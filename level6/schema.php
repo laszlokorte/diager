@@ -17,11 +17,11 @@ class Relation {
     }
 }
 class Attribute {
-    function __construct(public string $id, public string $multiple, public string $iskey, public string $type) {
+    function __construct(public string $id, public string $multiple, public string $iskey, public mixed $typ) {
     }
 }
 class RelationAttribute {
-    function __construct(public string $id, public string $multiple, public string $iskey, public string $type) {
+    function __construct(public string $id, public string $multiple, public string $iskey, public mixed $typ) {
     }
 }
 
