@@ -6,6 +6,47 @@ class Diagram {
     function __construct(public string $id, public $listOfEntity = [], public $listOfRelation = [], public $listOfAttribute = [], public $listOfRelationAttribute = [], public $listOfAssociation = [], public $listOfConsisting = [], public $listOfAttached = []) {
 
     }
+
+    public function getEntityIndex(string $EntId) {
+        foreach($this->listOfEntity AS $id => $Entity) {
+            if($Entity->EntId == $EntId) {
+                return $id;
+            }
+        }
+
+        return null;
+    }
+
+    public function getRelationIndex(string $RelId) {
+        foreach($this->listOfRelation AS $id => $Relation) {
+            if($Relation->RelId == $RelId) {
+                return $id;
+            }
+        }
+
+        return null;
+    }
+
+    public function getAttributeIndex(string $AtrId) {
+        foreach($this->listOfAttribute AS $id => $Attribute) {
+            if($Attribute->AtrId == $AtrId) {
+                return $id;
+            }
+        }
+
+        return null;
+    }
+
+    public function getRelationAttributeIndex(string $RelAtrId) {
+        foreach($this->listOfRelationAttribute AS $id => $RelationAttribute) {
+            if($RelationAttribute->RelAtrId == $RelAtrId) {
+                return $id;
+            }
+        }
+
+        return null;
+    }
+
 }
 
 class Entity {

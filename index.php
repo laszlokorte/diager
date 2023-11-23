@@ -220,6 +220,10 @@
 	$level7to6Generator = new Level7\Generator('Level6');
 	if(GENERATE_OUT) echo '<details><summary>level7to6Generator</summary><pre>', h($level7to6Generator->generate($level7to6)), PHP_EOL, '</pre></details>';
 
+	require_once './level7/plotter.php';
+	$level7Plotter = new Level7\Plotter();
+	if(GENERATE_PLOT) echo $level7Plotter->svg($level7);
+
 	require_once './level8/generator.php';
 	require_once './level8/schema.php';
 	$level8 = require_once './level8/self.php';
