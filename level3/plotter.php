@@ -1,6 +1,6 @@
 <?php
 
-namespace Level2;
+namespace Level3;
 
 class Plotter {
     public function __construct(public $namespace = __NAMESPACE__) {
@@ -26,12 +26,19 @@ class Plotter {
             array_keys($diagram->listOfRelation))
         );
 
-
+        $associations = implode(PHP_EOL, array_map(
+            function($a, $aidx) use ($diagram, $entityStepX, $entityStartX, $entityY, $relationStepX, $relationStartX, $relationY) {
+                return sprintf('<line stroke="black" x1="%d" y1="%d" x2="%d" y2="%d" />', $entityStartX + $entityStepX * $a->EntityIndex, $entityY, $relationStartX + $relationStepX * $a->RelationIndex, $relationY);
+            }, 
+            $diagram->listOfAssociation, 
+            array_keys($diagram->listOfAssociation))
+        );
 
         return <<<EO
             <svg viewBox="-100 -200 200 400">
             $entities
             $relations
+            $associations
             </svg>
             EO;
     }

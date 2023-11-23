@@ -8,7 +8,11 @@ class Plotter {
     }
 
     public function svg(Diagram $diagram) {
-        $entities = implode(PHP_EOL, array_map(fn($e) => sprintf('<text text-anchor="middle" font-size="50" x="0" y="0">%s</text>', $e->id), $diagram->listOfEntity));
+        $entityCount = count($diagram->listOfEntity) - 1;
+        $entityStepX = 500;
+        $entityStartX = -($entityCount * $entityStepX) / 2;
+        
+        $entities = implode(PHP_EOL, array_map(fn($e, $eidx) => sprintf('<text text-anchor="middle" font-size="50" x="%d" y="0">%s</text>', $entityStartX + $entityStepX * $eidx, $e->id), $diagram->listOfEntity, array_keys($diagram->listOfEntity)));
 
         return <<<EO
             <svg viewBox="-100 -100 200 200">
